@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: remove-highlighter
+    env: python
+    buildCommand: ""
+    startCommand: python app.py
+    plan: free

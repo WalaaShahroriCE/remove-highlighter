@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>نتيجة المعالجة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(to right, #e0ecff, #f8faff);
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #2b2e4a;
+        }
+
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .images img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-download {
+            margin-top: 30px;
+        }
+
+        .btn-download a {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-download a:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-download a:active {
+            background-color: #004080;
+        }
+
+        @media screen and (max-width: 768px) {
+            .images {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📷 نتيجة المعالجة</h1>
+        <div class="images">
+            <div>
+                <p>الصورة الأصلية</p>
+                <img src="{{ original_url }}" alt="الصورة الأصلية">
+            </div>
+            <div>
+                <p>الصورة بعد إزالة التخطيط</p>
+                <img src="{{ cleaned_url }}" alt="الصورة المنظفة">
+            </div>
+        </div>
+        <div class="btn-download">
+            <a href="{{ cleaned_url }}" download>📥 تنزيل الصورة المنظفة</a>
+        </div>
+    </div>
+</body>
+</html>
