@@ -13,7 +13,11 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULT_FOLDER, exist_ok=True)
 
 @app.route('/')
-def index():
+def home():
+    return render_template('home.html')
+
+@app.route('/upload')
+def upload():
     return render_template('index.html')
 
 @app.route('/process', methods=['POST'])

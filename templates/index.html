@@ -1,112 +1,92 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>إزالة التخطيط من الصور</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <title>إزالة التخطيط</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #0e0e0e;
+      color: white;
+      font-family: 'Tajawal', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
 
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background: linear-gradient(to right, #e0ecff, #f8faff);
-            margin: 0;
-            padding: 0;
-            direction: rtl;
-        }
+    .card {
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 500px;
+    }
 
-        .container {
-            max-width: 420px;
-            background-color: #ffffff;
-            margin: 70px auto;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 30px;
+      color: #f2f2f2;
+    }
 
-        h1 {
-            color: #2b2e4a;
-            margin-bottom: 25px;
-            font-size: 22px;
-        }
+    input[type="file"] {
+      padding: 8px;
+      border-radius: 6px;
+      margin: 10px 0;
+      color: white;
+    }
 
-        input[type="file"] {
-            padding: 10px;
-            margin-bottom: 20px;
-            display: block;
-            margin: 0 auto;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
+    button {
+      background-color: #0a84ff;
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
 
-        .preview {
-            max-width: 100%;
-            max-height: 250px;
-            margin-top: 15px;
-            margin-bottom: 20px;
-            display: none;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
+    button:hover {
+      background-color: #0066cc;
+    }
 
-        button {
-            background-color: #007bff;
-            border: none;
-            color: white;
-            padding: 12px 25px;
-            font-size: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .info {
+      color: #ccc;
+      font-size: 14px;
+      margin-top: 15px;
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+    .back-button {
+      margin-top: 20px;
+      background-color: #444;
+    }
 
-        .footer {
-            margin-top: 25px;
-            font-size: 13px;
-            color: #777;
-        }
-
-        @media screen and (max-width: 480px) {
-            .container {
-                margin: 40px 15px;
-            }
-        }
-    </style>
+    .back-button:hover {
+      background-color: #333;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🧼 إزالة التخطيط من الصور</h1>
-        <form action="/process" method="post" enctype="multipart/form-data">
-            <input type="file" name="image" accept="image/*" onchange="previewImage(event)" required>
-            <img id="preview" class="preview" src="#" alt="معاينة الصورة" />
-            <button type="submit">✨ إزالة التخطيط</button>
-        </form>
-        <div class="footer">📥 سيتم تحميل الصورة المنظفة مباشرة بعد المعالجة</div>
-    </div>
 
-    <script>
-        function previewImage(event) {
-            const input = event.target;
-            const preview = document.getElementById('preview');
+  <div class="card">
+    <h1> إزالة التخطيط من الصور</h1>
 
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
+    <form method="POST" action="/process" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" required>
+      <br>
+      <button type="submit"> إزالة التخطيط</button>
+    </form>
+
+    <p class="info">📥 سيتم تحميل الصورة المنظفة مباشرة بعد المعالجة</p>
+
+    <button class="back-button" onclick="window.location.href='/'">🏠 العودة إلى الصفحة الرئيسية</button>
+  </div>
+
 </body>
 </html>

@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>نتيجة المعالجة</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
+    <!-- خط جميل -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Tajawal', sans-serif;
-            background: linear-gradient(to right, #e0ecff, #f8faff);
+            background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+            color: #ffffff;
             margin: 0;
             padding: 0;
             direction: rtl;
@@ -17,18 +18,18 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 60px auto;
-            background: #fff;
+            background: #121212;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 26px;
             margin-bottom: 30px;
-            color: #2b2e4a;
+            color: #f2f2f2;
         }
 
         .images {
@@ -38,33 +39,46 @@
             gap: 20px;
         }
 
+        .images div {
+            width: 45%;
+        }
+
         .images img {
-            max-width: 100%;
-            max-height: 400px;
-            border-radius: 10px;
-            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid #333;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
         }
 
-        .btn-download {
-            margin-top: 30px;
+        .images p {
+            margin: 10px 0;
+            color: #ccc;
         }
 
-        .btn-download a {
-            background-color: #007bff;
+        .btn-container {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-container a,
+        .btn-container button {
+            background-color: #0a84ff;
             color: white;
-            text-decoration: none;
-            padding: 12px 25px;
+            padding: 12px 30px;
+            border: none;
             border-radius: 8px;
             font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
             transition: background-color 0.3s ease;
         }
 
-        .btn-download a:hover {
-            background-color: #0056b3;
-        }
-
-        .btn-download a:active {
-            background-color: #004080;
+        .btn-container a:hover,
+        .btn-container button:hover {
+            background-color: #005fcc;
         }
 
         @media screen and (max-width: 768px) {
@@ -72,24 +86,31 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .images div {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📷 نتيجة المعالجة</h1>
+        <h1>📷 نتيجة إزالة التخطيط</h1>
+
         <div class="images">
             <div>
                 <p>الصورة الأصلية</p>
                 <img src="{{ original_url }}" alt="الصورة الأصلية">
             </div>
             <div>
-                <p>الصورة بعد إزالة التخطيط</p>
-                <img src="{{ cleaned_url }}" alt="الصورة المنظفة">
+                <p>الصورة بعد التنظيف</p>
+                <img src="{{ cleaned_url }}" alt="الصورة بعد التنظيف">
             </div>
         </div>
-        <div class="btn-download">
-            <a href="{{ cleaned_url }}" download>📥 تنزيل الصورة المنظفة</a>
+
+        <div class="btn-container">
+            <a href="{{ cleaned_url }}" download>📥 تحميل الصورة المنظفة</a>
+            <button onclick="window.location.href='/'">🔁 رفع صورة جديدة</button>
         </div>
     </div>
 </body>
