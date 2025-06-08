@@ -1,8 +1,7 @@
 Flask==2.3.2
 opencv-python==4.5.5.64
 numpy==1.23.5
-<<<<<<< HEAD
+
 Werkzeug==2.3.6
-=======
-Werkzeug==2.3.6
->>>>>>> 68591b8 (new design and welcome page)
+
+
